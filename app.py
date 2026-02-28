@@ -1,10 +1,3 @@
-"""
-app_dashboard.py
-Streamlit Business Dashboard (blue-gray theme) for the provided CSV dataset.
-Drop this file in the same folder as your CSV (Copy of finalProj_df - 2022.csv)
-Run: streamlit run app_dashboard.py
-"""
-
 import streamlit as st
 import pandas as pd
 import numpy as np
