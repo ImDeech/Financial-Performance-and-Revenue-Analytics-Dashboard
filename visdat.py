@@ -1,9 +1,3 @@
-# ======================================================
-# BUSINESS DASHBOARD VISUALIZATION
-# Dataset: Copy of finalProj_df - 2022.csv
-# Author: Devin (adapted from GPT-5)
-# ======================================================
-
 # --- Import Library ---
 import pandas as pd
 import matplotlib.pyplot as plt
