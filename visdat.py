@@ -1,7 +1,6 @@
 # --- Import Library ---
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 
 # --- Load Dataset ---
 df = pd.read_csv(r"D:\Belajar\Visualisasi Data\Copy of finalProj_df - 2022.csv")
