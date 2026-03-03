@@ -9,7 +9,7 @@ df = pd.read_csv(r"D:\Belajar\Visualisasi Data\Copy of finalProj_df - 2022.csv")
 df['order_date_parsed'] = pd.to_datetime(df['order_date'], errors='coerce')
 df['month'] = df['order_date_parsed'].dt.to_period('M')
 
-# Buat kolom tambahan
+# --- Buat kolom tambahan ---
 df['revenue_after_discount'] = df['after_discount']
 df['gross_margin'] = df['after_discount'] - df['cogs']
 
@@ -43,17 +43,13 @@ df_scatter = df.sample(min(1000, len(df)), random_state=42)
 # --- Correlation Heatmap Data ---
 corr = df[['price','qty_ordered','discount_amount','after_discount','cogs','gross_margin']].corr()
 
-# ======================================================
-# STYLE SETTINGS
-# ======================================================
+# --- STYLE SETTINGS ---
 plt.style.use('seaborn-v0_8-whitegrid')
 primary_color = '#2E86C1'      # Biru profesional
 secondary_color = '#AED6F1'    # Biru muda
 accent_color = '#1F618D'       # Biru tua
 
-# ======================================================
-# 1️⃣ KPI Summary Bar Chart
-# ======================================================
+# --- KPI Summary Bar Chart ---
 fig, ax = plt.subplots(figsize=(8,5))
 kpi_labels = ['Revenue', 'Orders', 'AOV', 'Total Discount', 'Gross Margin']
 kpi_values = [total_revenue, total_orders, aov, total_discount, gross_margin]
@@ -64,9 +60,7 @@ ax.bar_label(bars, fmt='%.0f', fontsize=8, rotation=45)
 plt.tight_layout()
 plt.show()
 
-# ======================================================
-# 2️⃣ Time Series (Revenue & Orders)
-# ======================================================
+# --- Time Series (Revenue & Orders) ---
 fig, ax1 = plt.subplots(figsize=(8,5))
 ax1.plot(monthly.index.to_timestamp(), monthly['revenue_after_discount'], 
          color=primary_color, marker='o', label='Revenue')
@@ -79,9 +73,7 @@ ax1.set_title('Monthly Revenue & Orders Trend', fontsize=14, fontweight='bold')
 fig.tight_layout()
 plt.show()
 
-# ======================================================
-# 3️⃣ Top 10 SKU by Revenue
-# ======================================================
+# --- Top 10 SKU by Revenue ---
 fig, ax = plt.subplots(figsize=(8,5))
 bars = ax.barh(top_sku.index[::-1], top_sku.values[::-1], color=accent_color)
 ax.set_title("Top 10 SKU by Revenue", fontsize=14, fontweight='bold')
@@ -89,9 +81,7 @@ ax.set_xlabel("Revenue")
 plt.tight_layout()
 plt.show()
 
-# ======================================================
-# 4️⃣ Scatter Plot: Price vs Quantity Ordered
-# ======================================================
+# --- Scatter Plot: Price vs Quantity Ordered ---
 fig, ax = plt.subplots(figsize=(6,5))
 ax.scatter(df_scatter['price'], df_scatter['qty_ordered'], 
            alpha=0.6, color=secondary_color, edgecolor=accent_color)
@@ -101,9 +91,7 @@ ax.set_ylabel("Quantity Ordered")
 plt.tight_layout()
 plt.show()
 
-# ======================================================
-# 5️⃣ Correlation Heatmap
-# ======================================================
+# --- Correlation Heatmap ---
 fig, ax = plt.subplots(figsize=(6,5))
 cax = ax.matshow(corr, cmap='Blues')
 plt.xticks(range(len(corr.columns)), corr.columns, rotation=45, ha='left')
