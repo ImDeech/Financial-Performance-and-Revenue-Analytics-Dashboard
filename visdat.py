@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # --- Load Dataset ---
-df = pd.read_csv(r"D:\Belajar\Visualisasi Data\Copy of finalProj_df - 2022.csv")
+df = pd.read_csv(r"Copy of finalProj_df - 2022.csv")
 
 # --- Preprocessing ---
 df['order_date_parsed'] = pd.to_datetime(df['order_date'], errors='coerce')
