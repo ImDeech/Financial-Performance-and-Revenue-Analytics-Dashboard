@@ -225,7 +225,7 @@ if not display_cols:
 # Tampilkan tabel secara penuh (melebar)
 st.dataframe(
     df[display_cols].head(100),
-    use_container_width=True,  # ini yang bikin tabel melebar penuh
+    use_container_width=True,
     height=400
 )
 
